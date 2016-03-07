@@ -4,6 +4,7 @@ import Stats from '../../../common/Stats';
 import Translate from '../../../common/Translate';
 import { hashHistory } from 'react-router';
 import {Panel} from 'react-bootstrap';
+import grading from '../../../../grading';
 
 var platoAdapter = require('../../../../plato-adapter');
 
@@ -80,7 +81,9 @@ var Home = React.createClass({
     }
 
     var complexity = data.reports['plato-analyzer-complexity'];
+
     return {
+      grade: grading(data),
       totals: {
         lloc: [
           {

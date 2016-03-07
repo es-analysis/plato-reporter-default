@@ -23,11 +23,16 @@ var MenuBar = React.createClass({
                 <span className='fa fa-list'></span>
               </Link>
             </li>
-            <li className={classNames({'active': this.state.charts})}>
-              <Link to='/dashboard/chartjs'>
+            {
+            /* Temporarily commenting out until historical trends get in */
+            /*            
+            <li className={classNames({'active': this.state.history})}>
+              <Link to='/dashboard/history'>
                 <span className='fa fa-bar-chart'></span>
               </Link>
             </li>
+            */
+            }
           </ul>
         </div>
       </div>

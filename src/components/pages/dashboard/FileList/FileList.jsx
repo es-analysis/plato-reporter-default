@@ -5,6 +5,7 @@ import Translate from '../../../common/Translate';
 import { hashHistory } from 'react-router';
 import {Panel} from 'react-bootstrap';
 import { Link } from 'react-router';
+import grading from '../../../../grading';
 
 var platoAdapter = require('../../../../plato-adapter');
 
@@ -34,12 +35,13 @@ var Home = React.createClass({
   render: function () {
     let files = this.state.files.map((file)=> {
       console.log(file);
+      let grade = grading(file);
       return <div className="col-lg-12">
         <div className="row">
           <div className="col-sm-1">
             <div className="panel panel-default">
               <div className="panel-body">
-                <div className="text-center"><h4>One</h4></div>
+                <div className={`text-center grade grade-${grade}`}><h4>{grade}</h4></div>
               </div>
             </div>
           </div>
