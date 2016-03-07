@@ -1,15 +1,15 @@
 import NProgress from 'nprogress';
-import Home from './Home';
+import FileList from './FileList';
 
 import platoAdapter from '../../../../plato-adapter';
 
 module.exports = {
-  path: 'dashboard/home',
+  path: 'dashboard/list',
   getComponent(location, cb) {
     NProgress.start();
     require.ensure([], (require) => {
       NProgress.done();
-      cb(null, Home);
+      cb(null, FileList);
     });
   }
 };

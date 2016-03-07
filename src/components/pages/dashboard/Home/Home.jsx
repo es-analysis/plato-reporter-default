@@ -167,8 +167,6 @@ var Home = React.createClass({
       /></div>;
     });
     
-    let options = this.getChartOptions();
-
     return (
       <div>
         <div className='conter-wrapper home-container'>

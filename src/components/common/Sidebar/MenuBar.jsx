@@ -19,7 +19,7 @@ var MenuBar = React.createClass({
               </Link>
             </li>
             <li className={classNames({'active': this.state.report})}>
-              <Link to='/dashboard/report'>
+              <Link to='/dashboard/list'>
                 <span className='fa fa-list'></span>
               </Link>
             </li>

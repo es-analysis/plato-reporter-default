@@ -29,6 +29,7 @@ const rootRoute = {
     childRoutes: [
       require('./components/pages/dashboard/Home'),
       require('./components/pages/dashboard/Report'),
+      require('./components/pages/dashboard/FileList'),
     ]
   }]
 };
