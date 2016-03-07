@@ -1,23 +1,21 @@
 import React from 'react';
 
 var TopNav = React.createClass({
-
   getInitialState: function () {
     return {};
   },
-
   render: function () {
-    return ( <nav className='navbar topnav-navbar navbar-fixed-top' role='navigation'>
-
+    return ( 
+      <nav className='navbar topnav-navbar navbar-fixed-top' role='navigation'>
         <div className='navbar-header text-center'>
-          <button type='button' className='navbar-toggle' onClick={this.showMenu}>
-            <span className='sr-only'>Toggle navigation</span>
-            <span className='icon-bar'></span>
-            <span className='icon-bar'></span>
-            <span className='icon-bar'></span>
-          </button>
           <a className='navbar-brand' ui-sref='home'>P</a>
         </div>
+        <div className="collapse navbar-collapse">
+          <p className="navbar-text navbar-left navbar-title">{this.props.title}</p>
+          <a className="btn btn-rounded btn-bordered navbar-right btn-primary" style={{'margin': '8px 10px'}} href="http://github.com/es-analysis/plato">Plato on github</a>
+          
+        </div>
+
       </nav>
 
     );

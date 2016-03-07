@@ -79,11 +79,6 @@ var Tables = React.createClass({
         <pageheader pagename="File Report" subtitle={this.state.file}></pageheader>
         <div className="conter-wrapper">
             <div className="row">
-              <div className="col-lg-12">
-                <h1>{<span>{this.state.file}</span>} <small>Grade : A</small></h1>
-              </div>
-            </div>
-            <div className="row">
               <Panel header={<span>Complexity</span>} bsStyle="info">
                 <div className="row">
                   <div className="col-md-6 report-complexity-stats">

@@ -19,17 +19,13 @@ var Dashboard = React.createClass({
   getInitialState: function(){
     return {};
   },
-
-  //contextTypes: {
-  //  router: React.PropTypes.func.isRequired
-  //},
-  //
+  
   render: function() {
     const { pathname } = this.props.location;
     
     return (
         <div className="dashboard-page">
-          <TopNav />
+          <TopNav title="Source Analysis"/>
           <Sidebar />
           <ReactCSSTransitionGroup component="div"
                                transitionName="ng"
