@@ -74,6 +74,10 @@ var Home = React.createClass({
     };
     
     this.data = data;
+    
+    function findReportId(file) {
+      return data.entries.filter(entry => entry.file === file)[0].id;
+    }
 
     var complexity = data.reports['plato-analyzer-complexity'];
     return {
@@ -104,9 +108,10 @@ var Home = React.createClass({
           {
             key: 'maintainability',
             values: complexity.each.map(function (fileReport) {
+              console.log(fileReport);
               return {
                 label: fileReport.file,
-                value: fileReport.total.maintainability.toFixed(1)
+                value: fileReport.average.maintainability.toFixed(1)
               }
             })
           }
@@ -115,24 +120,28 @@ var Home = React.createClass({
       },
       individualStats: [
         {
-          text: Translate.getWord('stats.minMaintainability') + ' : ' + complexity.min.maintainability.file,
+          text: Translate.getWord('stats.minMaintainability') + ' : ' + complexity.min.average.maintainability.file,
           class: this.getClass(),
-          value: complexity.min.maintainability.value.toFixed(2),
+          value: complexity.min.average.maintainability.value.toFixed(2),
+          reportId: findReportId(complexity.min.average.maintainability.file) 
         },
         {
-          text: Translate.getWord('stats.maxCyclomatic') + ' : ' + complexity.max.cyclomatic.file,
+          text: Translate.getWord('stats.maxCyclomatic') + ' : ' + complexity.max.total.cyclomatic.file,
           class: this.getClass(),
-          value: complexity.max.cyclomatic.value,
+          value: complexity.max.total.cyclomatic.value,
+          reportId: findReportId(complexity.min.total.cyclomatic.file)
         },
         {
-          text: Translate.getWord('stats.maxLloc') + ' : ' + complexity.max.lloc.file,
+          text: Translate.getWord('stats.maxLloc') + ' : ' + complexity.max.total.lloc.file,
           class: this.getClass(),
-          value: complexity.max.lloc.value,
+          value: complexity.max.total.lloc.value,
+          reportId: findReportId(complexity.min.total.lloc.file)
         },
         {
-          text: Translate.getWord('stats.maxDifficulty') + ' : ' + complexity.max.difficulty.file,
+          text: Translate.getWord('stats.maxDifficulty') + ' : ' + complexity.max.total.difficulty.file,
           class: this.getClass(),
-          value: complexity.max.difficulty.value.toFixed(2),
+          value: complexity.max.total.difficulty.value.toFixed(2),
+          reportId: findReportId(complexity.min.total.difficulty.file)
         },
       ]
     };
@@ -162,7 +171,7 @@ var Home = React.createClass({
       return <div className='col-md-6 col-lg-6'><Stats icon="cloud-upload"
                     value={stat.value + '%'}
                     text={stat.text}
-                    link="TODO"
+                    link={`/dashboard/report/${stat.reportId}`}
                     progressValue="{stat.value}"
       /></div>;
     });
